@@ -3,6 +3,9 @@ function matchPattern(inputLine, pattern) {
     return inputLine.includes(pattern);
   } else if (pattern === '\\d') {
     return /\d/.test(inputLine)
+  } else if (pattern === '\\w') {
+    const regex = new RegExp(pattern)
+    return regex.test(inputLine)
   } else {
     throw new Error(`Unhandled pattern ${pattern}`);
   }
