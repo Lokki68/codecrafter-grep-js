@@ -6,7 +6,11 @@ function matchPattern(inputLine, pattern) {
   } else if (pattern === '\\w') {
     const regex = new RegExp(pattern)
     return regex.test(inputLine)
-  } else {
+  } else if(pattern.startsWith('[') && pattern.endsWith(']')) {
+    const ptrn = new RegExp(pattern)
+
+    return ptrn.test(inputLine)
+  }  else {
     throw new Error(`Unhandled pattern ${pattern}`);
   }
 }
