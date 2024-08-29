@@ -4,9 +4,9 @@ function matchPattern(inputLine, pattern) {
     .replace('\\w', '[0-9a-zA-Z]')
 
   if(pattern.length === 1) {
-    return inputLine.include(pattern)
+    return inputLine.includes(pattern)
   } else {
-    return new RegEx(regex).test(inputLine)
+    return new RegExp(regex).test(inputLine)
   }
 }
 
