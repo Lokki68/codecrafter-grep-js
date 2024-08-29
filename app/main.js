@@ -1,17 +1,12 @@
 function matchPattern(inputLine, pattern) {
-  if (pattern.length === 1) {
-    return inputLine.includes(pattern);
-  } else if (pattern === '\\d') {
-    return /\d/.test(inputLine)
-  } else if (pattern === '\\w') {
-    const regex = new RegExp(pattern)
-    return regex.test(inputLine)
-  } else if(pattern.startsWith('[') && pattern.endsWith(']')) {
-    const ptrn = new RegExp(pattern)
+  let regex = pattern
+    .replace('\\d', '[0-9]')
+    .replace('\\w', '[0-9a-zA-Z]')
 
-    return ptrn.test(inputLine)
-  }  else {
-    throw new Error(`Unhandled pattern ${pattern}`);
+  if(pattern.length === 1) {
+    return inputLine.include(pattern)
+  } else {
+    return new RegEx(regex).test(inputLine)
   }
 }
 
